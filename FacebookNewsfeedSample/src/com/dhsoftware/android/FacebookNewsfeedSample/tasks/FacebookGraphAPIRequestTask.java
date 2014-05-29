@@ -1,14 +1,17 @@
 package com.dhsoftware.android.FacebookNewsfeedSample.tasks;
 
 import android.os.AsyncTask;
+
 import com.dhsoftware.android.FacebookNewsfeedSample.model.GraphAPIRequest;
 import com.dhsoftware.android.FacebookNewsfeedSample.model.IRequestCallback;
 import com.dhsoftware.android.FacebookNewsfeedSample.model.newsfeed.INewsfeedItem;
+import com.facebook.HttpMethod;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.model.GraphObject;
 import com.facebook.model.GraphObjectList;
+
 import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,6 +71,15 @@ public class FacebookGraphAPIRequestTask extends AsyncTask<GraphAPIRequest, Inte
    protected Void doInBackground(GraphAPIRequest... params) {
       mItems = new ArrayList<INewsfeedItem>();
       final Session session = Session.getActiveSession();
+      
+      
+//      new Request(
+//    		    session,
+//    		    "/{object-id}/likes",
+//    		    null,
+//    		    HttpMethod.GET, null).executeAndWait();
+      
+      
       for (GraphAPIRequest request : params) {
          Request graphApiRequest = Request.newGraphPathRequest(session, request.getGraphPath(), null);
          graphApiRequest.setParameters(request.getParameters());

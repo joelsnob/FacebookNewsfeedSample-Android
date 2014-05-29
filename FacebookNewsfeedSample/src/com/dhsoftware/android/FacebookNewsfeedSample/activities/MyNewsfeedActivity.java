@@ -3,9 +3,7 @@ package com.dhsoftware.android.FacebookNewsfeedSample.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 
-import com.dhsoftware.android.FacebookNewsfeedSample.R;
 import com.dhsoftware.android.FacebookNewsfeedSample.fragments.MyNewsfeedFragment;
 import com.facebook.Session;
 
@@ -29,7 +27,7 @@ public class MyNewsfeedActivity extends FragmentActivity {
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-
+      
        if (savedInstanceState == null) {
            MyNewsfeedFragment mNewsfeedFragment = new MyNewsfeedFragment();
            getSupportFragmentManager().beginTransaction().add(android.R.id.content, mNewsfeedFragment, __NEWSFEED_FRAGMENT_TAG__).commit();
